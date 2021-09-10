@@ -290,29 +290,7 @@ $(document).on('click', 'body #order-now', function (e) {
       cache: false,
       dataType: "JSON",
       success: function (data) {
-        console.log("SUCCESS");
-        return;
-        $('#addedTocCart').modal('show');
-        var formData = new FormData();
-        formData.append('_token', token);
-        $.ajax({
-            url: loadcartAgain,
-            type: 'GET',
-            processData: false, // important
-            contentType: false, // important
-            data: formData,
-            cache: false,
-            dataType: "HTML",
-            success: function (data) {
-                $('body .ps-cart__content').html(data);
-                var quantity = $('#cartcount').val();
-
-                $('#cart-mobile .TotalPriceM').html($('#cart-mobile .jahnama').text());
-
-
-                $('.ps-cart--mini .header__extra span i').html(quantity);
-            },
-        });
+        //
       },
 
   });

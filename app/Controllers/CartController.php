@@ -25,7 +25,7 @@ class CartController extends Controller
 
         return $this->view->render($response,$view, [
             'products' => $products,
-            'productsCount' => count($products),
+            'cartCounter' => count($products),
             'total' => $total
         ]);
     }

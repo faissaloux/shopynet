@@ -23,9 +23,10 @@ class WebController extends Controller {
         $ProductCategories = ProductCategories::where('active','1')->get()->toArray();
         $pinnedproducts = Product::where('show_home','on')->first();
         $view = 'front/index.twig';
-                $laterDate = (new \DateTime('tomorrow + 2 days'))->format('Y-m-d');
+        $laterDate = (new \DateTime('tomorrow + 2 days'))->format('Y-m-d');
+        $cartCounter = count($_SESSION['products']);
 
-        return $this->view->render($response,$view,compact('products','sliders','ProductCategories','pinnedproducts','laterDate'));
+        return $this->view->render($response,$view,compact('products','sliders','ProductCategories','pinnedproducts','laterDate', 'cartCounter'));
     }
     
     
@@ -43,8 +44,9 @@ class WebController extends Controller {
            $products = Product::all()->toArray();  
         }
     
+        $cartCounter = count($_SESSION['products']);
         $view = 'front/categories.twig';
-        return $this->view->render($response,$view,compact('products','current_categorie'));
+        return $this->view->render($response,$view,compact('products','current_categorie', 'cartCounter'));
         
         
     }
@@ -64,9 +66,10 @@ class WebController extends Controller {
         $view = 'front/product.twig';
         $laterDate = (new \DateTime('tomorrow + 2 days'))->format('Y-m-d');
        
-        $current_categorie = $product->category->name ;
+        $cartCounter = count($_SESSION['products']);
+        $current_categorie = $product->category->name;
 
-        return $this->view->render($response,$view,compact('product','laterDate','current_categorie'));
+        return $this->view->render($response,$view,compact('product','laterDate','current_categorie', 'cartCounter'));
     }
     
     public function thankyou($request,$response,$args){
@@ -140,19 +143,22 @@ class WebController extends Controller {
 
     public function contact_us($request,$response)
     {
+        $cartCounter = count($_SESSION['products']);
         $view = 'front/contact_us.twig';
-        return $this->view->render($response,$view);
+        return $this->view->render($response,$view, compact('cartCounter'));
     }
 
     public function return_policy($request,$response)
     {
+        $cartCounter = count($_SESSION['products']);
         $view = 'front/return_policy.twig';
-        return $this->view->render($response,$view);
+        return $this->view->render($response,$view, compact('cartCounter'));
     }
 
     public function confidentiality_policy($request,$response)
     {
+        $cartCounter = count($_SESSION['products']);
         $view = 'front/confidentiality_policy.twig';
-        return $this->view->render($response,$view);
+        return $this->view->render($response,$view, compact('cartCounter'));
     }
 }

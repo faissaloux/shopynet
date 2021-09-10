@@ -1,5 +1,5 @@
 
-nav.topbar, .notice-bar.desktop-notice-bar, .product-section.add-to-cart-section button, .product-section.single-visitors b, .section-I7upaLbva51pYIX2 .product-item .product-actions .button, input.btn.btn-block.btn-submit {
+nav.topbar, .notice-bar.desktop-notice-bar, .product-section.add-to-cart-section button, .product-section.single-visitors b, input.btn.btn-block.btn-submit {
     background: #de5081 !important;
 }
 
@@ -63,11 +63,6 @@ display: inline-block;
 .product-item .product-price {
     display: block !important;
     text-align: center !important;
-}
-.section-I7upaLbva51pYIX2 .product-item .product-actions .button {
-        background-color: #de5081;
-        border-color: #de5081;
-        color: white;
 }
       
 span.after.currency-value {
@@ -823,12 +818,9 @@ section.owl-carousel {
     border: 0;
 }
 
-
-
 .categories-list-section , .video-section {
     border-bottom: 1px solid #00000008;
 }
-
 
 .categories-list-section .owl-carousel .owl-nav button.owl-next, .categories-list-section .owl-carousel .owl-nav button.owl-prev {
     background: #d1672e !important;
@@ -838,9 +830,4 @@ section.owl-carousel {
     display: inline-block;
     color: white;
     float: left;
-}
-
-.container{
-    max-width:1200px;
-    margin: 0 auto;
 }

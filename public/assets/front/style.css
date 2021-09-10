@@ -36,10 +36,13 @@ main.page-wrapper {
 }
 
 
-a#search-icon {
+a#search-icon,
+a#cart-icon {
     z-index: 999999;
     position: relative;
     cursor: pointer;
+    width: 20px;
+display: inline-block;
 }
 
 .search-input {
@@ -837,4 +840,7 @@ section.owl-carousel {
     float: left;
 }
 
-
+.container{
+    max-width:1200px;
+    margin: 0 auto;
+}

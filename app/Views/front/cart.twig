@@ -1,0 +1,29 @@
+{% extends "front/layout.twig" %}
+{% block content %}
+    <div class="container cart">
+        <div class="form">
+            <form action="#" method="POST">
+                <p class="title">إملأ معلوماتك</p>
+                <input type="text" placeholder="الإسم الكامل"/>
+                <input type="tel" placeholder="رقم الهاتف"/>
+                <input type="text" placeholder="العنوان"/>
+                <input type="text" placeholder="المدينة"/>
+                <input type="email" placeholder="البريد الإلكتروني"/>
+
+                <div class="submit-btn">
+                    <button type="submit">تأكيد الطلبية</button>
+                </div>
+            </form>
+        </div>
+        <div class="content">
+            <p class="title">مجموع الطلبية<span>(0)</span></p>
+            <hr>
+            <div class="products">
+            </div>
+            <div class="total-container">
+                <p>مجموع الطلبية :</p>
+                <p class="total">0 درهم</p>
+            </div>
+        </div>
+	</div>
+{% endblock %}

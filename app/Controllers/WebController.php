@@ -158,4 +158,10 @@ class WebController extends Controller {
         $view = 'front/confidentiality_policy.twig';
         return $this->view->render($response,$view);
     }
+
+    public function cart($request,$response)
+    {
+        $view = 'front/cart.twig';
+        return $this->view->render($response,$view);
+    }
 }

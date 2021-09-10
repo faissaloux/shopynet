@@ -32,6 +32,7 @@ $app->get('/categories/{slug}', Web::class.':categories')->setName('website.cate
 $app->get('/contact-us', Web::class.':contact_us')->setName('website.contact_us');
 $app->get('/return-policy', Web::class.':return_policy')->setName('website.return_policy');
 $app->get('/confidentiality-policy', Web::class.':confidentiality_policy')->setName('website.confidentiality_policy');
+$app->get('/cart', Web::class.':cart')->setName('website.cart');
 
 
 

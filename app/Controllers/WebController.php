@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Controllers;
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
-use \App\Models\{User , Charges, product , ProductCategories , Slider ,Options};
-use \Carbon\Carbon;
-use Illuminate\Database\Capsule\Manager as Capsule;
+
+use \App\Models\{product , ProductCategories , Slider};
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -156,12 +153,6 @@ class WebController extends Controller {
     public function confidentiality_policy($request,$response)
     {
         $view = 'front/confidentiality_policy.twig';
-        return $this->view->render($response,$view);
-    }
-
-    public function cart($request,$response)
-    {
-        $view = 'front/cart.twig';
         return $this->view->render($response,$view);
     }
 }

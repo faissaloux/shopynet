@@ -1,28 +1,17 @@
 <?php
 
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
-
 // make namespace short
 use \App\Controllers\AuthController as auth;
 use \App\Middleware\flashMiddleware as flash;
 use \App\Middleware\OldInputMidddleware as old;
 use \App\Middleware\logoutMiddleware as logout;
-use \App\Controllers\ApiController as Api;
 use \App\Controllers\SettingsController as settings;
 use \App\Controllers\SliderController as slider;
-use \App\Controllers\ProductsCategoriesController as productscats  ;
-
-
-
+use \App\Controllers\ProductsCategoriesController as productscats;
+use \App\Controllers\CartController as cart;
 
 // security , disable direct access
 defined('BASEPATH') or exit('No direct script access allowed');
-
-
-
-
-
 
 $app->get('[/]', Web::class.':index')->setName('website.index');
 $app->get('/product/{id}', Web::class.':product')->setName('website.product');
@@ -32,17 +21,11 @@ $app->get('/categories/{slug}', Web::class.':categories')->setName('website.cate
 $app->get('/contact-us', Web::class.':contact_us')->setName('website.contact_us');
 $app->get('/return-policy', Web::class.':return_policy')->setName('website.return_policy');
 $app->get('/confidentiality-policy', Web::class.':confidentiality_policy')->setName('website.confidentiality_policy');
-$app->get('/cart', Web::class.':cart')->setName('website.cart');
-
-
-
+$app->get('/cart', cart::class.':cart')->setName('website.cart');
+$app->post('/add-to-cart', cart::class.':addToCart')->setName('add_to_cart');
 
 $app->post('/login[/]', auth::class .':login')->setName('login');
 $app->get('/logout[/]', auth::class .':logout')->setName('logout')->add( new logout($container) );
-
-
-
-
 
 $app->group('/admin', function ($container) use($app) {
 

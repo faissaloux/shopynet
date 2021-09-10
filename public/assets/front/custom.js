@@ -1,5 +1,4 @@
-
-    
+const addtocart = '/add-to-cart';
   
     $(".lx-contact-us > a").on("click",function(){
 	if($(".lx-contact-us-content").css("display") !== "block"){
@@ -145,40 +144,6 @@ $('body #close_cmd').click(function(){
     $('.cmd_wrapper').hide();
 });
 
-
-
-$('.single-submit').click(function(){
-  
-  var product = $(this).attr('data-product');
-  var color = $(this).attr('data-color');
-  var size = $(this).attr('data-size');
-  
-  
-  if(color == 'on'){
-    $('body #product_color').show();
-  }else {
-    $('body #product_color').hide();  
-  }
-  
-   
-  if(size == 'on'){
-    $('#product_size').show();
-  }else {
-    $('#product_size').hide();  
-  }
-  
-  
-  
-  $('#savecommand [name="idproduct"]').val(product);
-  
-  $('.cmd_wrapper').show();
-  
-});
-
-
-
-
-
 window.setInterval(function(){
           $(".single-visitors b").text(parseInt($(".single-visitors b").text()) + Math.floor((Math.random() * 5) + 1));
 },3000);
@@ -304,3 +269,56 @@ $('body .owl-carousel2').owlCarousel( {
     }
   });
 
+$(document).on('click', 'body #order-now', function (e) {
+  const product = $(this).data('product');
+  const type = $('select#type').find(":selected");
+  const quantity = type.data('quantity');
+  const price = type.val();
+
+  e.preventDefault();
+  var formData = new FormData();
+  formData.append('product', product);
+  formData.append('quantity', quantity);
+  formData.append('price', price);
+
+  $.ajax({
+      url: addtocart,
+      type: 'POST',
+      processData: false, // important
+      contentType: false, // important
+      data: formData,
+      cache: false,
+      dataType: "JSON",
+      success: function (data) {
+        console.log("SUCCESS");
+        return;
+        $('#addedTocCart').modal('show');
+        var formData = new FormData();
+        formData.append('_token', token);
+        $.ajax({
+            url: loadcartAgain,
+            type: 'GET',
+            processData: false, // important
+            contentType: false, // important
+            data: formData,
+            cache: false,
+            dataType: "HTML",
+            success: function (data) {
+                $('body .ps-cart__content').html(data);
+                var quantity = $('#cartcount').val();
+
+                $('#cart-mobile .TotalPriceM').html($('#cart-mobile .jahnama').text());
+
+
+                $('.ps-cart--mini .header__extra span i').html(quantity);
+            },
+        });
+      },
+
+  });
+
+
+  return false;
+
+
+});

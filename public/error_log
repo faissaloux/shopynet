@@ -1,0 +1,6 @@
+[17-Apr-2021 12:41:43 Africa/Casablanca] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/storovxd/public_html/app/Controllers/SettingsController.php on line 113
+[17-Apr-2021 12:41:43 Africa/Casablanca] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/storovxd/public_html/app/Controllers/SettingsController.php on line 113
+[17-Apr-2021 12:42:03 Africa/Casablanca] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/storovxd/public_html/app/Controllers/SettingsController.php on line 113
+[17-Apr-2021 12:42:04 Africa/Casablanca] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/storovxd/public_html/app/Controllers/SettingsController.php on line 113
+[17-Apr-2021 14:53:46 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/storovxd/public_html/app/Starter.php on line 247
+[17-Apr-2021 14:53:47 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/storovxd/public_html/app/Starter.php on line 247

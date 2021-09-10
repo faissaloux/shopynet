@@ -141,10 +141,21 @@ class WebController extends Controller {
       return  $response->withRedirect($this->router->pathFor('pixels'));
     }
 
+    public function contact_us($request,$response)
+    {
+        $view = 'front/contact_us.twig';
+        return $this->view->render($response,$view);
+    }
 
+    public function return_policy($request,$response)
+    {
+        $view = 'front/return_policy.twig';
+        return $this->view->render($response,$view);
+    }
 
-
-      
-      
+    public function confidentiality_policy($request,$response)
+    {
+        $view = 'front/confidentiality_policy.twig';
+        return $this->view->render($response,$view);
+    }
 }
-

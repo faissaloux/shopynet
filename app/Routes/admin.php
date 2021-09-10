@@ -29,6 +29,9 @@ $app->get('/product/{id}', Web::class.':product')->setName('website.product');
 $app->get('/thank-you', Web::class.':thankyou')->setName('website.thankyou');
 $app->get('/categories/{slug}', Web::class.':categories')->setName('website.categories');
 
+$app->get('/contact-us', Web::class.':contact_us')->setName('website.contact_us');
+$app->get('/return-policy', Web::class.':return_policy')->setName('website.return_policy');
+$app->get('/confidentiality-policy', Web::class.':confidentiality_policy')->setName('website.confidentiality_policy');
 
 
 

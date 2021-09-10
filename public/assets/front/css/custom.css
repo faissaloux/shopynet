@@ -1,3 +1,12 @@
+@keyframes orderBtnHover{
+    0% {
+        border-radius: 50%;
+    }
+    100% {
+        heigh: 80px;
+        border-radius: 0;
+    }
+}
 
  body{
  font-family: 'Almarai', sans-serif;
@@ -319,19 +328,21 @@ i.fas.fa-chart-area.fa-3x.red-text {
     color: #FFF;
 }
 
-@keyframes orderBtnHover{
-    0% {
-        border-radius: 50%;
-    }
-    100% {
-        heigh: 80px;
-        border-radius: 0;
-    }
-}
-
 .section-I7upaLbva51pYIX2 .product-item .product-actions .button:hover::before{
     height: 80px;
     width: 100%;
     border-radius: 0;
     animation: orderBtnHover 400ms;
+}
+
+.policies{
+    padding: 40px 0;
+}
+
+.policies .title{
+    text-align: center;
+}
+
+.policies .content{
+    line-height: 40px;
 }

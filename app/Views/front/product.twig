@@ -27,11 +27,11 @@ class='product-single'
                         </div>
                         <style>
                             .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
-    padding: 5px 15px !important;
-    display: inline-block;
-    color: white;
-    float: left;
-}
+                              padding: 5px 15px !important;
+                              display: inline-block;
+                              color: white;
+                              float: left;
+                           }
                         </style>
                         <ul class="list-preview owl-carousel">
                            <li class="thumbnail-item" >
@@ -90,13 +90,16 @@ class='product-single'
                         <div class="duration"><span id="seconds" class="value">23</span> <span>ثانية</span></div>
                      </div>
                   </div>
-                  <div class="product-section description-section">
-                     <div class="single-description fr-view">
-                        {{ product.description|raw }}
-                     </div>
-                  </div>
                </div>
             </div>
+            {% if product.description %}
+            <div class="product-section description-section">
+               <h3 style="margin-bottom: 10px">تفاصيل المنتج</h3>
+               <div class="single-description fr-view">
+                  {{ product.description|raw }}
+               </div>
+            </div>
+            {% endif %}
          </div>
       </div>
    </div>

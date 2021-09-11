@@ -23,6 +23,7 @@ $app->get('/return-policy', Web::class.':return_policy')->setName('website.retur
 $app->get('/confidentiality-policy', Web::class.':confidentiality_policy')->setName('website.confidentiality_policy');
 $app->get('/cart', cart::class.':cart')->setName('website.cart');
 $app->post('/add-to-cart', cart::class.':addToCart')->setName('add_to_cart');
+$app->post('/check-if-in-cart', cart::class.':checkIfInCart')->setName('check_if_in_cart');
 
 $app->post('/login[/]', auth::class .':login')->setName('login');
 $app->get('/logout[/]', auth::class .':logout')->setName('logout')->add( new logout($container) );

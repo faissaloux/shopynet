@@ -1,4 +1,5 @@
 const addtocart = '/add-to-cart';
+const checkIfInCart = '/check-if-in-cart';
   
     $(".lx-contact-us > a").on("click",function(){
 	if($(".lx-contact-us-content").css("display") !== "block"){
@@ -282,21 +283,31 @@ $(document).on('click', 'body #order-now', function (e) {
   formData.append('price', price);
 
   $.ajax({
-      url: addtocart,
-      type: 'POST',
-      processData: false, // important
-      contentType: false, // important
-      data: formData,
-      cache: false,
-      dataType: "JSON",
-      success: function (data) {
-        //
-      },
-
+    url: checkIfInCart,
+    type: 'POST',
+    processData: false, // important
+    contentType: false, // important
+    data: formData,
+    cache: false,
+    dataType: "JSON",
+    success: function (data) {
+      if(! data.exist){
+        $.ajax({
+          url: addtocart,
+          type: 'POST',
+          processData: false, // important
+          contentType: false, // important
+          data: formData,
+          cache: false,
+          dataType: "JSON",
+          success: function (data) {
+            let cartCounter = $('#cart-counter').html().replace('(', '').replace(')', '');
+            const newCount = parseInt(cartCounter) + 1;
+            $('#cart-counter').html('(' + newCount + ')');
+          }
+        });
+      }
+    }
   });
-
-
   return false;
-
-
 });

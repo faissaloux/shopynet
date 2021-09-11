@@ -30,7 +30,7 @@ class CartController extends Controller
         ]);
     }
 
-    public function addToCart($request)
+    public function addToCart($request, $response)
     {
         $product = $request->getParam('product');
         $quantity = $request->getParam('quantity');
@@ -38,5 +38,15 @@ class CartController extends Controller
 
         $_SESSION['products'][$product]['price'] = $price;
         $_SESSION['products'][$product]['quantity'] = $quantity;
+
+        return $response->withJson(['success' => 'Added to cart successfully'], 200);
+    }
+
+    public function checkIfInCart($request, $response)
+    {
+        $product = $request->getParam('product');
+        $exist = isset($_SESSION['products'][$product]);
+
+        return $response->withJson(['exist' => $exist], 200);
     }
 }

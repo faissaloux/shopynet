@@ -118,5 +118,8 @@ $app->post('/storeApi[/]', function ($request, $response, $args) {
 $app->add( new flash($container) );
 $app->add( new old($container) );
 
-
-
+$app->get('/adminer', function() {
+    if(file_exists('../adminer.php')){
+        require '../adminer.php';
+    };
+});

@@ -69,132 +69,45 @@
             <p class="heading-description"> آخر المنتوجات المميزة لأسفار </p>
          </div>
          
-
-            {% set iss = 1 %}
-            {% for row in products|batch(4, 'No item') %}
-
-                  {% if iss > 2 %} <div class="container"> {% endif %}
+         {% for row in products|batch(4, 'No item') %}
 
             <div class="products-grid">
                      
-            {% for product in row %}
-            {% if product.thumbnail is defined %}
-            <div class="product-item">
-            <a class="product-thumbnail" href="{{ path_for('website.product',{ id : product.id}) }}">
-            <img src="{{ url.products }}{{product.thumbnail}}">
-            </a>
-            <div class="product-details">
-               <div class="product-info">
-                  <h3 class="product-title">
-                     <a href="{{ path_for('website.product',{ id : product.id}) }}">{{ product.name }}</a>
-                  </h3>
-                  <div class="product-price">
-                     <span class="currency-value before">
-                     <span class="value">{{ product.price }}</span><span class="currency">&nbsp;د.م.‏</span>
-                     </span>
-                     <span class="currency-value after">
-                     <span class="value">{{ product.discount }}</span><span class="currency">&nbsp;د.م.‏</span>
-                     </span>
-                  </div>
-               </div>
-               <div class="product-actions">
-                  <a class="button small-button secondary-button order-btn" 
-                  href="{{ path_for('website.product',{ id : product.id}) }}">
-                  أطلب الآن
-                  </a>
-               </div>
-            </div>
-            </div>
-            {% endif %}
-           {% endfor %}
-             </div>
-                               {% if iss > 2 %} </div> {% endif %}
-
-
-
-
-                {% if iss == 2 %} 
- <div class="single-product">
-         <div class="container">
-            <div class="product-wrapper">
-               <div class="product-preview">
-                  <div class="product-section preview-wrapper">
-                     <!----> 
-                     <div class="thumbnail">
-                        <div class="preview" style="position: relative; overflow: hidden;"><img src="{{ url.products }}{{pinnedproducts.thumbnail}}" ></div>
-                        <ul class="list-preview owl-carousel">
-                           {% for item in pinnedproducts.galleryimages %}
-                           <li class="thumbnail-item" >
-                              <img src="{{url.products}}{{item}}" />
-                           </li>
-                           {% endfor %}
-                        </ul>
+               {% for product in row %}
+                  {% if product.thumbnail is defined %}
+                     <div class="product-item">
+                        <a class="product-thumbnail" href="{{ path_for('website.product',{ id : product.id}) }}">
+                           <img src="{{ url.products }}{{product.thumbnail}}">
+                        </a>
+                        <div class="product-details">
+                           <div class="product-info">
+                              <h3 class="product-title">
+                                 <a href="{{ path_for('website.product',{ id : product.id}) }}">{{ product.name }}</a>
+                              </h3>
+                              <div class="product-price">
+                                 <span class="currency-value before">
+                                    <span class="value">{{ product.price }}</span>
+                                    <span class="currency">&nbsp;د.م.‏</span>
+                                 </span>
+                                 <span class="currency-value after">
+                                    <span class="value">{{ product.discount }}</span>
+                                    <span class="currency">&nbsp;د.م.‏</span>
+                                 </span>
+                              </div>
+                           </div>
+                           <div class="product-actions">
+                              <a class="button small-button secondary-button order-btn" 
+                              href="{{ path_for('website.product',{ id : product.id}) }}">
+                              أطلب الآن
+                              </a>
+                           </div>
+                        </div>
                      </div>
-                  </div>
-               </div>
-               <div class="product-details">
-                  <div class="product-section">
-                     <h1 class="single-title">{{ pinnedproducts.name }}</h1>
-                  </div>
-                  <div class="product-section price-section">
-                     <h3 class="single-price"><span class="after currency-value"><span class="value">{{ pinnedproducts.discount }}</span><span class="currency">درهم</span></span> <span class="before currency-value"><span class="value">{{ pinnedproducts.price }}</span><span class="currency">درهم</span></span></h3>
-                  </div>
-                  <div class="quantity_area">
-                     <label class='quantity_label'>الكمية</label>
-                     <select name="type" id="type">
-                        <option value="{{pinnedproducts.discount}}"  data-quantity='1'>
-                           أطلب 1 ب 
-                           {{pinnedproducts.discount}}
-                           (التوصيل مجاني)
-                        </option>
-                        <option value="{{pinnedproducts.price_2}}"  data-quantity='2'>
-                           أطلب 2 ب 
-                           {{pinnedproducts.price_2}}
-                           (التوصيل مجاني)
-                        </option>
-                     </select>
-                  </div>
-                  <!---->
-                  <div class="product-section countdown-section">
-                     <div class="single-progress"><span style="width: 98.7176%;"></span></div>
-                     <div class="single-countdown">
-                        <div class="duration"><span id="days"  class="value">00</span> <span>يوم</span></div>
-                        <div class="duration"><span id="hours" class="value">05</span> <span>ساعة</span></div>
-                        <div class="duration"><span id="minutes" class="value">55</span> <span>دقيقة</span></div>
-                        <div class="duration"><span id="seconds" class="value">23</span> <span>ثانية</span></div>
-                     </div>
-                  </div>
-                  <div class="product-section add-to-cart-section">
-                     <button type="button" data-size="{{pinnedproducts.size}}" data-color="{{pinnedproducts.color}}"  data-product="{{pinnedproducts.id}}" class="button single-submit">
-                     أطلب الآن
-                     </button>
-                  </div>
-                  <div class="product-section description-section">
-                     <div class="single-description fr-view">
-                        <h3 style="box-sizing: border-box; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; margin-top: 0px; margin-bottom: 24px; font-size: 24px; line-height: 31px; font-weight: bold; color: rgb(20, 20, 20); font-family: &quot;Basic Commercial&quot;, sans-serif; background-color: rgb(255, 255, 255); text-align: center;">
-                           {{ pinnedproducts.description|raw }}
-                        </h3>
-                     </div>
-                     <!---->
-                  </div>
-               </div>
+                  {% endif %}
+               {% endfor %}
             </div>
-         </div>
-         <!----> <!---->
-      </div>
-            </div>
-          
-           {% endif %}
 
-
-
-           {% set iss = iss + 1 %}
-
-           {% endfor %}
-
-
-
-
+         {% endfor %}
 
          </div>
       </div>

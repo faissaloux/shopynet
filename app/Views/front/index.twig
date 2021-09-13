@@ -8,33 +8,6 @@
       </div>
       {% endfor %}
    </section>
- 
-
-
-
-
-   <section class="section categories-list-section">
-      <div class="container">
-         <div class="app-heading">
-            <h3 class="heading-primary">اهم التصنيفات</h3>
-            <p class="heading-description">يمكنك الآن رؤية اهم التصنيفات لدينا</p>
-         </div>
-         <div class="categories-style-1 owl-carousel">
-         {%  for ProductCategory in ProductCategories %}
-            <div class="category-item">
-               <a href="/categories/{{ ProductCategory.slug }}" class="category-thumbnail">
-                  <img src="/uploads/categories/{{ProductCategory.image}}">
-               </a> 
-               <h3 class="category-details">
-                  <a href="{{ ProductCategory.slug }}" class="category-title">
-                  {{ ProductCategory.name }}
-                  </a>
-               </h3>
-            </div>
-         {% endfor %}
-         </div>
-      </div>
-   </section>
 
 
 

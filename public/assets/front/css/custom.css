@@ -399,16 +399,35 @@ i.fas.fa-chart-area.fa-3x.red-text {
     margin-bottom: 20px;
 }
 
-.cart .content .products .product .thummbnail{
-    height: 100px;
+.cart .content .products .product .remove-container{
+    width: 10%;
+}
+
+.cart .content .products .product .remove-container .remove{
+    background-color: #CCC;
+    color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cart .content .products .product .remove-container .remove:hover{
+    background-color: #000;
+    color: #FFF;
+}
+
+.cart .content .products .product .thumbnail{
     width: 100px;
     overflow: hidden;
     margin-left: 20px;
 }
 
-.cart .content .products .product .thummbnail img{
+.cart .content .products .product .thumbnail img{
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 
 .cart .content .products .product .info .title{

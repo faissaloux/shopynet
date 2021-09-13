@@ -16,12 +16,20 @@
             </form>
         </div>
         <div class="content">
-            <p class="title">مجموع الطلبية<span>({{ cartCounter }})</span></p>
+            <p class="title">مجموع الطلبية<span class="cart-counter">({{ cartCounter }})</span></p>
             <hr>
             <div class="products">
-                {% for product in products %}
+                {% for id,product in products %}
                     <div class="product">
-                        <div class="thummbnail">
+                        <div class="d-flex align-items-center justify-content-center remove-container">
+                            <span
+                                class="d-flex align-items-center justify-content-center remove"
+                                data-product="{{ id }}"
+                            >
+                                x
+                            </span>
+                        </div>
+                        <div class="thumbnail">
                             <img src="{{ url.products }}{{product.thumbnail}}">
                         </div>
                         <div class="info">
@@ -34,7 +42,7 @@
             </div>
             <div class="total-container">
                 <p>مجموع الطلبية :</p>
-                <p class="total">{{ total }} درهم</p>
+                <p class="total"><span class="amount">{{ total }}</span> درهم</p>
             </div>
         </div>
 	</div>

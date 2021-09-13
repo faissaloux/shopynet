@@ -1,5 +1,6 @@
 const addtocart = '/add-to-cart';
 const checkIfInCart = '/check-if-in-cart';
+const removeFromCart = '/remove-from-cart';
   
     $(".lx-contact-us > a").on("click",function(){
 	if($(".lx-contact-us-content").css("display") !== "block"){
@@ -302,9 +303,7 @@ $(document).on('click', 'body #order-now', function (e) {
           cache: false,
           dataType: "JSON",
           success: function (data) {
-            let cartCounter = $('#cart-counter').html().replace('(', '').replace(')', '');
-            const newCount = parseInt(cartCounter) + 1;
-            $('#cart-counter').html('(' + newCount + ')');
+            updateCartCounter('increase');
             $('body #addedToCartModal .modal-body .product-name').html(productName);
             $('body #addedToCartModal').modal('show');
           }
@@ -314,3 +313,44 @@ $(document).on('click', 'body #order-now', function (e) {
   });
   return false;
 });
+
+$(document).on('click', 'body .remove', function (e) {
+  const product = $(this).data('product');
+  const productRow = $(this).parents('.product');
+  
+  e.preventDefault();
+  var formData = new FormData();
+  formData.append('product', product);
+
+  $.ajax({
+    url: removeFromCart,
+    type: 'POST',
+    processData: false, // important
+    contentType: false, // important
+    data: formData,
+    cache: false,
+    dataType: "JSON",
+    success: function (data) {
+      updateCartCounter('decrease');
+      productRow.remove();
+      $('.total .amount').html(data.total);
+    }
+  });
+
+});
+
+const updateCartCounter = (type, quantity = 1) => {
+
+  let cartCounter = $('#cart-counter').html().replace('(', '').replace(')', '');
+  let newCount;
+  
+  switch(type){
+    case 'increase': newCount = parseInt(cartCounter) + quantity;
+      break;
+    case 'decrease': newCount = parseInt(cartCounter) - quantity;
+      break;
+    default: newCount = cartCounter;
+  }
+
+  $('#cart-counter, .cart-counter').html('(' + newCount + ')');
+};

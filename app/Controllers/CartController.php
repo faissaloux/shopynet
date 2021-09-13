@@ -49,4 +49,20 @@ class CartController extends Controller
 
         return $response->withJson(['exist' => $exist], 200);
     }
+
+    public function removeFromCart($request, $response)
+    {
+        $total = 0;
+        $product = $request->getParam('product');
+        unset($_SESSION['products'][$product]);
+        
+        foreach($_SESSION['products'] as $product => $data){
+            $total += $data['price'];
+        }
+
+        return $response->withJson([
+            'success' => 'Removed from cart successfully',
+            'total' => $total
+        ], 200);
+    }
 }

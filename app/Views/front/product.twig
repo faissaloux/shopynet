@@ -1,6 +1,6 @@
 {% extends "front/layout.twig" %}
 {% block bodyClass %}
-class='product-single'
+product-single
 {% endblock %}
 {% block content %}
 <div class="breadcrumb" style="margin-bottom: 74px;">
@@ -71,7 +71,7 @@ class='product-single'
                      </div>
                   </div>
                   <div class="product-section add-to-cart-section">
-                     <button type="button" data-size="{{product.size}}" data-color="{{product.color}}" data-product="{{product.id}}" class="button single-submit" id="order-now">
+                     <button type="button" data-size="{{product.size}}" data-color="{{product.color}}" data-product="{{product.id}}" data-name="{{product.name}}" class="button single-submit" id="order-now">
                      أطلب الآن
                      </button>
                   </div>
@@ -104,4 +104,18 @@ class='product-single'
       </div>
    </div>
 </main>
+
+<div class="modal"  id="addedToCartModal"  tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+         <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title">إضافة الطلب للسلة</h5>
+            </button>
+         </div>
+         <div class="modal-body" style="font-size: 16px;">
+            تم إضافة <span class="product-name"></span> للسلة
+         </div>
+         </div>
+   </div>
+</div>
 {% endblock %}

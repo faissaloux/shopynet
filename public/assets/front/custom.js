@@ -272,6 +272,7 @@ $('body .owl-carousel2').owlCarousel( {
 
 $(document).on('click', 'body #order-now', function (e) {
   const product = $(this).data('product');
+  const productName = $(this).data('name');
   const type = $('select#type').find(":selected");
   const quantity = type.data('quantity');
   const price = type.val();
@@ -304,6 +305,8 @@ $(document).on('click', 'body #order-now', function (e) {
             let cartCounter = $('#cart-counter').html().replace('(', '').replace(')', '');
             const newCount = parseInt(cartCounter) + 1;
             $('#cart-counter').html('(' + newCount + ')');
+            $('body #addedToCartModal .modal-body .product-name').html(productName);
+            $('body #addedToCartModal').modal('show');
           }
         });
       }

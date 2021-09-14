@@ -449,3 +449,15 @@ i.fas.fa-chart-area.fa-3x.red-text {
 .hero{
     margin-top: 40px !important;
 }
+
+.certification-tags img{
+    height: 70px;
+}
+
+.certification-tags .satisfait-rembourse{
+    height: 100px;
+}
+
+.certification-tags .ssl{
+    margin-right: 6px;
+}

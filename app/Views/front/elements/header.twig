@@ -15,10 +15,6 @@
                   <div class="header-element">
                      <a id="search-icon" type="submit" class="search-submit"><i class="fa fa-search"></i></a>
                   </div>
-                  <div class="header-element">
-                     <a href="{{ path_for('website.cart') }}" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
-                     <span id="cart-counter">({{ cartCounter }})</span>
-                  </div>
                </div>
                <div class="header-center">
                   <div class="header-element">
@@ -39,6 +35,10 @@
                   </div>
                </div>
                <div class="header-right">
+                  <div class="header-element">
+                     <span id="cart-counter">({{ cartCounter }})</span>
+                     <a href="{{ path_for('website.cart') }}" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
+                  </div>
                   <div class="header-element">
                      <a class="header-brand" href="/">
                      <img src="/uploads/media/{{ options.logo }}" alt=""/>

@@ -354,8 +354,19 @@ i.fas.fa-chart-area.fa-3x.red-text {
     text-align: center;
 }
 
+.policies .sub-title{
+    font-size: 30px;
+    font-weight: 900;
+}
+
 .policies .content{
+    font-size: 16px;
     line-height: 40px;
+}
+
+.confidentiality-policy .content{
+    font-size: 14px;
+    line-height: 24px;
 }
 
 .cart{

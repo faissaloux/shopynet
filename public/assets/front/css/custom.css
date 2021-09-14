@@ -461,3 +461,18 @@ i.fas.fa-chart-area.fa-3x.red-text {
 .certification-tags .ssl{
     margin-right: 6px;
 }
+
+.description-section .title{
+    margin-top: 10px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    text-align: center;
+    font-size: 24px;
+    padding: 7px 0;
+}
+
+.description-section .content{
+    padding: 20px 10px;
+    border: 1px solid #eee;
+    border-top: none;
+}

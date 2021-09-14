@@ -1,70 +1,24 @@
 <div class="lx-footer">
-   <footer class="footer " style="background-color: #fefefe;color: #000000;border-top: 0px;padding-top: 80px;">
-      <div class="container">
-         <div class="footer-body">
-            <div class="is-grid grid-3">
-               <div class="footer-item" style="display: none;">
-                  <h3>معلومات مهمة</h3>
-                  <ul class="list-unstyled footer-list">
-                     <li>
-                        <a href="pages/about-us.html" style="color: #000000;">
-                        نبذه عنا
-                        </a>
-                     </li>
-                     <li>
-                        <a href="pages/how-to-pay.html" style="color: #000000;">
-                        كيف يتم الدفع
-                        </a>
-                     </li>
-                     <li>
-                        <a href="pages/shipping-delivery.html" style="color: #000000;">
-                        الدفع و الإستلام
-                        </a>
-                     </li>
-                  </ul>
-               </div>
-               <div class="footer-item" style="display: none;">
-                  <h3>خدمات</h3>
-                  <ul class="list-unstyled footer-list">
-                     <li>
-                        <a href="pages/terms-and-conditions.html" style="color: #000000;">
-                        شروط الخدمة
-                        </a>
-                     </li>
-                     <li>
-                        <a href="pages/return-policy.html" style="color: #000000;">
-                        إسترداد أو إستبدال
-                        </a>
-                     </li>
-                  </ul>
-               </div>
-               <div class="footer-item">
-                  <h3>إتصل بنا</h3>
-                  <ul class="list-unstyled footer-list">
-                     <li>
-                        <a href="{{ path_for('website.contact_us') }}" style="color: #000000;">
-                        إتصل بنا
-                        </a>
-                     </li>
-                     <li>
-                        <a href="{{ path_for('website.return_policy') }}" style="color: #000000;">
-                        سياسة الارجاع
-                        </a>
-                     </li>
-                     <li>
-                        <a href="{{ path_for('website.confidentiality_policy') }}" style="color: #000000;">
-                        سياسة الخصوصية
-                        </a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </div>
-   </footer>
-
-   <!-- Footer Bottom -->
    <div class="lx-footer-bottom py-3">
+      <div class="lx-footer-bottom-content lx-footer-pages-section">
+         <ul class="list-unstyled footer-list">
+            <li>
+               <a href="{{ path_for('website.contact_us') }}">
+               إتصل بنا
+               </a>
+            </li>
+            <li>
+               <a href="{{ path_for('website.return_policy') }}">
+               سياسة الارجاع
+               </a>
+            </li>
+            <li>
+               <a href="{{ path_for('website.confidentiality_policy') }}">
+               سياسة الخصوصية
+               </a>
+            </li>
+         </ul>
+      </div>
       <div class="lx-footer-bottom-content d-flex">
          <div class="col-md-4 d-flex align-items-center">
             <div class="lx-copyright d-flex align-items-center">

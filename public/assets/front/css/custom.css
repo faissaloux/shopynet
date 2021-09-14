@@ -146,6 +146,18 @@ li.thumbnail-item {
     margin: auto;
 }
 
+.lx-footer-pages-section {
+    padding: 20px 0 40px;
+}
+
+.lx-footer-pages-section ul{
+    color: #e6e4e4;
+}
+
+.lx-footer-pages-section ul li{
+    padding: 4px 0;
+}
+
 .lx-copyright p {
     padding: 10px;
     text-align: center;

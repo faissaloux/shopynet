@@ -304,8 +304,9 @@ $(document).on('click', 'body #order-now', function (e) {
           dataType: "JSON",
           success: function (data) {
             updateCartCounter('increase');
-            $('body #addedToCartModal .modal-body .product-name').html(productName);
-            $('body #addedToCartModal').modal('show');
+            window.location.href = "/cart";
+            // $('body #addedToCartModal .modal-body .product-name').html(productName);
+            // $('body #addedToCartModal').modal('show');
           }
         });
       }

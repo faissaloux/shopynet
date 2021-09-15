@@ -30,13 +30,13 @@
                                 x
                             </span>
                         </div>
-                        <div class="thumbnail">
-                            <img src="{{ url.products }}{{product.thumbnail}}">
-                        </div>
-                        <div class="info">
+                        <div class="info flex-grow-1">
                             <p class="title">{{ product.name }}</p>
                             <p class="quantity"><span class="label">الكمية:</span>{{ product.quantity }}</p>
                             <p class="price"><span class="label">الثمن:</span>{{ product.price }} درهم</p>
+                        </div>
+                        <div class="thumbnail">
+                            <img src="{{ url.products }}{{product.thumbnail}}">
                         </div>
                     </div>
                 {% endfor %}

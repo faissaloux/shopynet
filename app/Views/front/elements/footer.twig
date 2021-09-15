@@ -1,5 +1,5 @@
 <div class="lx-footer">
-   <div class="lx-footer-bottom py-3">
+   <div class="lx-footer-bottom py-3 d-flex">
       <div class="lx-footer-bottom-content lx-footer-pages-section">
          <ul class="list-unstyled footer-list">
             <li>
@@ -19,13 +19,13 @@
             </li>
          </ul>
       </div>
-      <div class="lx-footer-bottom-content d-flex">
-         <div class="col-md-4 d-flex align-items-center">
+      <div class="lx-footer-bottom-content d-flex flex-column">
+         <div class="py-2">
             <div class="lx-copyright d-flex align-items-center">
                <p class="mb-0 pb-0">© كل الحقوق محفوظة <a href="javascript:;" style="color: #fff;"></a> 2020.</p>
             </div>
          </div>
-         <div class="col-md-8 text-left d-flex align-items-center justify-content-end">
+         <div class="text-left d-flex align-items-center justify-content-center py-2">
             <ul class="social_list_footer">
                {% if options.twitter_link is not empty %}
                <li><a href="{{options.twitter_link}}"><i class="fab fa-twitter"></i></a></li>

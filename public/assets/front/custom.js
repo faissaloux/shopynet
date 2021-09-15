@@ -355,3 +355,37 @@ const updateCartCounter = (type, quantity = 1) => {
 
   $('#cart-counter, .cart-counter').html('(' + newCount + ')');
 };
+
+function isScrolledIntoView(elem)
+{
+  const docViewTop = $(window).scrollTop();
+  const docViewBottom = docViewTop + $(window).height();
+
+  const elemTop = $(elem).offset().top;
+  const elemBottom = elemTop + $(elem).height();
+
+  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+const orderNow = $("#order-now");
+const orderNowPosition = orderNow.offset().top;
+
+$(document).on("scroll", function() {
+  if($(window).scrollTop() > orderNowPosition){
+    orderNow.css({
+      'position': 'fixed',
+      'bottom': 0,
+      'left': 0,
+      'right': 0,
+      'width': '100%',
+      'height': '80px',
+      'font-size': '30px'
+    });
+  }else{
+    orderNow.css({
+      'position': '',
+      'height': '45px',
+      'font-size': '15px'
+    });
+  };
+});

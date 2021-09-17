@@ -22,9 +22,10 @@ class CartController extends Controller
         
         $products = $_SESSION['products'];
         $view = 'front/cart.twig';
-
+        
         return $this->view->render($response,$view, [
             'products' => $products,
+            'productsIds' => implode(',', array_keys($products)),
             'cartCounter' => count($products),
             'total' => $total
         ]);

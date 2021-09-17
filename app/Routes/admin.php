@@ -95,23 +95,28 @@ $app->group('/admin', function ($container) use($app) {
 })->add( new App\Middleware\authMiddleware($container) );
 
 
-$app->post('/storeApi[/]', function ($request, $response, $args) {  
+$app->post('/storeApi[/]', function ($request, $response, $args) {
 
-    $data = [
-        'name'  =>  $_POST['fullname'] ,
-        'tel'  =>  $_POST['phone'] ,
-        'adress'  =>  $_POST['address'] ,
-        'city'  =>  $_POST['city'] ,
-        'quantity' => $_POST['quantity'],
-        'price' =>  $_POST['price'],
-        'source' => '',
-        'color' => $_POST['color'],
-        'size' =>  $_POST['size'],
-        'productID' => $_POST['idproduct'],
-    ];
-
-    \App\Models\NewOrders::create($data);
+    $productIds = explode(',', $_POST['productsIds']);
+    foreach($productIds as $productId){
+        $data = [
+            'name'  =>  $_POST['fullname'] ,
+            'tel'  =>  $_POST['phone'] ,
+            'adress'  =>  $_POST['address'] ,
+            'city'  =>  $_POST['city'] ,
+            'quantity' => $_SESSION['products'][$productId]['quantity'],
+            'price' =>  $_SESSION['products'][$productId]['price'],
+            'source' => '',
+            'color' => '',
+            'size' =>  '',
+            'productID' => $productId,
+        ];
     
+        \App\Models\NewOrders::create($data);
+        unset($_SESSION['products'][$productId]);
+    }
+    
+    return $response->withJson(['success' => 'Order created successfully'], 200);
 });
 
 

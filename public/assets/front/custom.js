@@ -96,9 +96,6 @@ if( ! validatePhone (tel))  {
      return false;  
 }
 
-
-
-
 $('#phoneAlert').hide();
 
   var datastring = $(this).serialize();
@@ -107,15 +104,11 @@ $('#phoneAlert').hide();
     url: '/storeApi',
     type : 'post',
     data: datastring,
-    dataType: "html",
-    beforeSend:function(){
-        
-    },
-   success: function( response ) {
-           window.location.href = "/thank-you";
-          },
-    error:function(response){
- 
+    cache: false,
+    dataType: "JSON",
+
+    success: function( response ) {
+      window.location.href = "/thank-you";
     }
   });
 

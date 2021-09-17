@@ -2,13 +2,20 @@
 {% block content %}
     <div class="container cart">
         <div class="form">
-            <form action="#" method="POST" class="h-100 d-flex flex-column justify-content-between">
+            <form
+                action="#"
+                method="POST"
+                class="h-100 d-flex flex-column justify-content-between"
+                id="savecommand"
+            >
                 <div>
                     <p class="title">إملأ معلوماتك</p>
-                    <input type="text" placeholder="الإسم الكامل"/>
-                    <input type="tel" placeholder="رقم الهاتف"/>
-                    <input type="text" placeholder="العنوان"/>
-                    <input type="text" placeholder="المدينة"/>
+                    <div class="alert" id='phoneAlert' style='display: none;'>المرجوا ادخال رقم هاتف صحيح</div>
+                    <input type="text" name="fullname" placeholder="الإسم الكامل"/>
+                    <input type="tel" name="phone" placeholder="رقم الهاتف"/>
+                    <input type="text" name="city" placeholder="المدينة"/>
+                    <input type="text" name="address" placeholder="العنوان"/>
+                    <input type="hidden" name="productsIds" value="{{ productsIds }}">
                 </div>
 
                 <div class="submit-btn">

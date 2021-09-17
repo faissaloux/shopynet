@@ -54,8 +54,12 @@
                <div class="header-left">
                   <div class="header-element">
                      <a href="/">
-                     Acceuil
+                     الرئيسية
                      </a>
+                  </div>
+                  <div class="header-element">
+                     <span id="cart-counter">({{ cartCounter }})</span>
+                     <a href="{{ path_for('website.cart') }}" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
                   </div>
                   <div class="header-element">
                      <a class="header-brand" href="/">
@@ -67,7 +71,7 @@
                   </div>
                   <div class="header-element">
                      <a href="javascript:;" id="menuopen">
-                     Menu 
+                     قائمة 
                      <i class="fas fa-bars"></i>
                      </a>
                   </div>
@@ -84,7 +88,7 @@
             <ul class="list-unstyled navigation-list">
                <li>
                   <a href="/" style="color:#000000">
-                  Acceuil
+                  الرئيسية
                   </a>
                </li>
                {% for item in ALLCATEGORIES %}

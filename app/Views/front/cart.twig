@@ -1,7 +1,7 @@
 {% extends "front/layout.twig" %}
 {% block content %}
-    <div class="container cart">
-        <div class="form">
+    <div class="container cart row mt-md-0 mt-4">
+        <div class="form col-md-6 col-12 order-md-1 order-2">
             <form
                 action="#"
                 method="POST"
@@ -23,7 +23,7 @@
                 </div>
             </form>
         </div>
-        <div class="content">
+        <div class="content col-md-6 col-12 order-md-2 order-1">
             <p class="title">مجموع الطلبية<span class="cart-counter">({{ cartCounter }})</span></p>
             <hr>
             <div class="products">

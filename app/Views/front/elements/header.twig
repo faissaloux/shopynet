@@ -57,12 +57,12 @@
                      الرئيسية
                      </a>
                   </div>
-                  <div class="header-element">
-                     <span id="cart-counter">({{ cartCounter }})</span>
-                     <a href="{{ path_for('website.cart') }}" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
-                  </div>
-                  <div class="header-element">
-                     <a class="header-brand" href="/">
+               </div>
+               <div class="header-center">
+                  <div class="header-element ">
+                     <a href="{{ path_for('website.cart') }}" class="cart-element">
+                        <span id="cart-counter">({{ cartCounter }})</span>
+                        <i class="fa fa-shopping-cart" id="cart-icon" style="margin-right: 4px;"></i>
                      </a>
                   </div>
                </div>

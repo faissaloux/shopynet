@@ -511,3 +511,26 @@ i.fas.fa-chart-area.fa-3x.red-text {
     border: 1px solid #eee;
     border-top: none;
 }
+
+.mobile-bar .container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.mobile-bar .header-center{
+    width: max-content;
+}
+
+.mobile-bar .cart-element{
+    background-color: #e3e3e3;
+    border-radius: 6px;
+    padding: 11px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-bar .cart-element #cart-icon{
+    display: flex;
+    justify-content: center;
+}

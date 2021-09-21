@@ -42,12 +42,12 @@ class ProductsController extends Controller{
             }else {
                 $thumbnail   = '';
             }
-            if(!empty($_FILES['galleryImages'])){
-                $gallery     = $this->uploadGallery($_FILES['galleryImages']);
+
+            if($_FILES['galleryImages']['size'][0] !== 0){
+                $gallery = $this->uploadGallery($_FILES['galleryImages']);
             }else {
-                $gallery  = '';
+                $gallery = null;
             }
-            
            
             $content->thumbnail   =  $thumbnail;
             $content->name        =  $post['name'] ;

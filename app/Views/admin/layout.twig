@@ -279,12 +279,10 @@
     
     if($('#posteditor').length){ 
       CKEDITOR.replace( 'posteditor', { 
-       language: 'ar'  , 
+        language: 'ar', 
         height: 400,
+        extraPlugins: 'imageuploader'
       });
-      
-    
-      
     }
 
     if($('.editcategory').length){
